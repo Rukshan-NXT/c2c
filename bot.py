@@ -30,7 +30,7 @@ async def _(event):
             Button.url("Dev", url="https://t.me/Danuma_admin_bot"),
              Button.url("Chanel", url="https://t.me/nxtbots"),
         ],
-        link_preview=False,
+        link_preview=True,
     )
 
 
@@ -50,23 +50,23 @@ async def _(event):
             if event.photo:
                 photo = event.media.photo
                 await datgbot.send_file(
-                    tochnl, photo, caption=event.text, link_preview=False
+                    tochnl, photo, caption=event.text, link_preview=True
                 )
             elif event.media:
                 try:
                     if event.media.webpage:
                         await datgbot.send_message(
-                            tochnl, event.text, link_preview=False
+                            tochnl, event.text, link_preview=True
                         )
                 except Exception:
                     media = event.media.document
                     await datgbot.send_file(
-                        tochnl, media, caption=event.text, link_preview=False
+                        tochnl, media, caption=event.text, link_preview=True
                     )
                 finally:
                     return
             else:
-                await datgbot.send_message(tochnl, event.text, link_preview=False)
+                await datgbot.send_message(tochnl, event.text, link_preview=True)
         except Exception as exc:
             logging.error(
                 "TO_CHANNEL ID is wrong or I can't send messages there (make me admin).\nTraceback:\n%s",
